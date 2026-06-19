@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pytest cache
+.pytest_cache/
+
+# Large dataset files (>100MB, would fail on GitHub)
+dataset/historical-dataset.csv
+
+# Backups and temp files
+*.bak
+test_output.pdf
+
+# ML Models/weights
+*.pt
+
+# Runtime outputs
+outputs/
