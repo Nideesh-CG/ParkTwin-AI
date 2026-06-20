@@ -1,0 +1,54 @@
+==========================================================
+              PARKTWIN AI - RUN INSTRUCTIONS
+==========================================================
+
+PARKTWIN AI is a Smart City Traffic Command Center that predicts, scores, and simulates illegal parking impact on urban traffic congestion.
+
+----------------------------------------------------------
+PREREQUISITES
+----------------------------------------------------------
+- Python 3.10 installed.
+- Internet connection (to download python package dependencies and the YOLOv8 model weights).
+
+----------------------------------------------------------
+METHOD 1: AUTOMATIC QUICKSTART (RECOMMENDED)
+----------------------------------------------------------
+This launcher script automatically installs dependencies, trains the forecasting models, pre-generates SHAP plots, starts the FastAPI backend, and launches the Streamlit Dashboard.
+
+For Windows:
+  1. Open Command Prompt (cmd) or PowerShell.
+  2. Navigate to the project directory:
+     cd d:\fullstack\ParkTwin-AI
+  3. Execute the batch file:
+     run.bat
+
+For Linux / macOS:
+  1. Open a terminal.
+  2. Navigate to the project directory:
+     cd /path/to/ParkTwin-AI
+  3. Make the shell script executable:
+     chmod +x run.sh
+  4. Run the launcher:
+     ./run.sh
+
+----------------------------------------------------------
+METHOD 2: MANUAL STEP-BY-STEP EXECUTION
+----------------------------------------------------------
+If you prefer running individual components manually, execute the following commands in order from the root directory of the project:
+
+Step 1: Install Python dependencies
+  pip install -r requirements.txt
+
+Step 2: Train prediction models & pre-generate SHAP plots
+  python main.py --train
+
+Step 3: Start the FastAPI Backend API Server
+  python main.py --api
+  - Swagger Documentation will be available at: http://127.0.0.1:8000/docs
+
+Step 4: Launch the Streamlit Interactive Dashboard (Command Center)
+  python main.py --dashboard
+  - The Web UI will open automatically at: http://localhost:8501
+
+Step 5 (Optional): Run the Automated Test Suite
+  python main.py --test
