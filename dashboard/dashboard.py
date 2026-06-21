@@ -3,6 +3,11 @@ import sys
 # Add project root directory to the python path to resolve app/services imports on Streamlit Cloud
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Force reload of local modules to prevent Streamlit Cloud from using stale cached imports in memory
+for module_name in list(sys.modules.keys()):
+    if module_name.startswith('app') or module_name.startswith('services'):
+        del sys.modules[module_name]
+
 import json
 import streamlit as st
 import pandas as pd
