@@ -1038,7 +1038,7 @@ def compile_executive_report_pdf():
 
 # Global Cached Data Loader
 @st.cache_data(show_spinner="Ingesting and cleaning historical dataset...")
-def load_data_cached():
+def load_data_cached_v2():
     pipeline = DataPipeline()
     df = pipeline.load_data()
     with open(REPORTS_DIR / "data_quality_report.json", 'r') as f:
@@ -1141,7 +1141,7 @@ def get_traffic_immunity_cached(leaderboard_df, memory_profiles):
 
 # Main Ingestion Execution Flow
 try:
-    df, dq_report = load_data_cached()
+    df, dq_report = load_data_cached_v2()
     clustered_df, summary_df, leaderboard = get_hotspots_cached(df)
     tms, memory_profiles = get_traffic_memory_cached(leaderboard, clustered_df)
     ims, immunity_scores = get_traffic_immunity_cached(leaderboard, memory_profiles)

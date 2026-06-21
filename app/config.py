@@ -14,8 +14,8 @@ DETECTIONS_DIR = OUTPUT_DIR / "detections"
 HEATMAPS_DIR = OUTPUT_DIR / "heatmaps"
 SIMULATIONS_DIR = OUTPUT_DIR / "simulations"
 
-# Create all output directories
-for d in [REPORTS_DIR, EXPLANATIONS_DIR, DETECTIONS_DIR, HEATMAPS_DIR, SIMULATIONS_DIR, MODEL_DIR]:
+# Create all required directories
+for d in [DATASET_DIR, REPORTS_DIR, EXPLANATIONS_DIR, DETECTIONS_DIR, HEATMAPS_DIR, SIMULATIONS_DIR, MODEL_DIR]:
     d.mkdir(parents=True, exist_ok=True)
 
 # Default City Settings (Bangalore Center)
