@@ -3,10 +3,19 @@ import sys
 # Add project root directory to the python path to resolve app/services imports on Streamlit Cloud
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-# Force reload of local modules to prevent Streamlit Cloud from using stale cached imports in memory
-for module_name in list(sys.modules.keys()):
-    if module_name.startswith('app') or module_name.startswith('services'):
-        del sys.modules[module_name]
+# Force reload of local modules in-place to prevent Streamlit Cloud from using stale cached imports in memory
+import importlib
+for module_name in ['app.config', 'app.data_pipeline', 
+                    'services.hotspot_service', 'services.pei_service', 
+                    'services.forecast_service', 'services.explainability_service', 
+                    'services.detection_service', 'services.delay_service', 
+                    'services.simulation_service', 'services.traffic_memory_service', 
+                    'services.immunity_service']:
+    if module_name in sys.modules:
+        try:
+            importlib.reload(sys.modules[module_name])
+        except Exception:
+            pass
 
 import json
 import streamlit as st
