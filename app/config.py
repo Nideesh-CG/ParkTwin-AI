@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 # Base Paths
-BASE_DIR = Path("d:/fullstack/ParkTwin-AI")
+BASE_DIR = Path(__file__).resolve().parent.parent
 DATASET_DIR = BASE_DIR / "dataset"
 OUTPUT_DIR = BASE_DIR / "outputs"
 MODEL_DIR = BASE_DIR / "models"
