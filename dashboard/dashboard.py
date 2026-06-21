@@ -1,4 +1,8 @@
 import os
+import sys
+# Add project root directory to the python path to resolve app/services imports on Streamlit Cloud
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import json
 import streamlit as st
 import pandas as pd
